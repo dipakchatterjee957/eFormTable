@@ -1,0 +1,56 @@
+<p-messages  [value]="msgs"></p-messages>
+
+<div class="mx-auto mt-5" style="width: 147px; border: 1px solid black;">
+  <button pButton type="button" class="p-button-info p-button-raised " label="Add Employee" icon="pi pi-plus"
+  iconPos="right" (click)="showForm()"></button>
+</div>
+
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text">
+</p-confirmDialog>
+
+<!-- Table -->
+<div class="container">
+  <h3>Employee List</h3>
+  <p-table [value]="employees" styleClass="p-datatable-striped p-datatable-gridlines">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Action</th>
+
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-emp>
+      <tr>
+        <td>{{emp.id}}</td>
+        <td>{{emp.employeeFirstName }}</td>
+        <td>{{emp.employeeLastName }}</td>
+        <td>{{emp.employeeEmail }}</td>
+        <td>{{emp.employeePhone }}</td>
+        <td>{{emp.employeeAdd1}} {{emp.employeeAdd2}}</td>
+        <td>
+          <button type="text" pButton pRipple label="More" class="p-button-raised" icon="pi pi-angle-down"
+          iconPos="right" (click)="op.toggle($event)"></button>
+          <p-overlayPanel #op>
+            <ng-template pTemplate>
+              <div><button pButton pRipple type="button" label="View" class="p-button-rounded p-button-success p-button-raised"
+                 icon="pi pi-check" (focus)="viewData(emp.employeeId)"></button>
+              </div>
+              <br>
+              <div><button pButton pRipple type="button" label="Delete" class="p-button-rounded p-button-danger p-button-raised"
+                icon="pi pi-trash" (click)="delete(emp.id,emp.employeeId)"></button>
+              </div>
+            </ng-template>
+          </p-overlayPanel>
+
+        </td>
+
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+

@@ -1,0 +1,66 @@
+<p-toast position="top-center"  ></p-toast>
+
+<div class="container">
+
+  <form [formGroup]="employeeFrom">
+    <div class="row">
+      <!-- employeeFirstName -->
+      <div class="col-lg-3 form-group ">
+        <label>Employee FirstName<span class="text-danger">*</span></label>
+        <input pInputText formControlName="employeeFirstName" type="text" class="form-control" />
+        <div *ngIf="employeeFirstName?.invalid && employeeFirstName?.touched">
+          <small class="text-danger" *ngIf="employeeFirstName?.errors?.required">*Employee FirstName Required</small>
+        </div>
+      </div>
+      <!-- employeeLastName -->
+      <div class="col-lg-3 form-group ">
+        <label>Employee LastName<span class="text-danger">*</span></label>
+        <input pInputText formControlName="employeeLastName" type="text" class="form-control" />
+        <div *ngIf="employeeLastName?.invalid && employeeLastName?.touched">
+          <small class="text-danger" *ngIf="employeeLastName?.errors?.required">*Employee LastName Required</small>
+        </div>
+      </div>
+      <!-- employeeEmail -->
+      <div class="col-lg-3 from-group">
+        <label>Employee Email<span class="text-danger">*</span></label>
+        <input pInputText class="form-control" type="text" formControlName="employeeEmail" />
+        <div *ngIf="!employeeEmail?.valid && employeeEmail?.touched">
+          <small class="text-danger" *ngIf="employeeEmail?.errors?.required">*Email Required</small>
+          <small class="text-danger" *ngIf="employeeEmail?.errors?.email">*Invaid Email</small>
+        </div>
+      </div>
+
+      <!-- employeePhone -->
+      <div class="col-lg-3 from-group">
+        <label>Employee Phone<span class="text-danger">*</span></label>
+        <input pInputText class="form-control" type="text" formControlName="employeePhone" />
+        <div *ngIf="!employeePhone?.valid && employeePhone?.touched">
+          <small class="text-danger" *ngIf="employeePhone?.errors?.required">*Phone Number Required</small>
+          <small class="text-danger" *ngIf="employeePhone?.errors?.pattern">*Please, Enter 10 digit Mobile Number</small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- employeeAdd1 -->
+      &nbsp; &nbsp;
+      <div class=" from-group">
+        <label>Employee Add1</label>
+        <textarea rows="1" cols="35" pInputTextarea class="form-control" type="text"
+          formControlName="employeeAdd1"></textarea>
+      </div> &nbsp; &nbsp;
+      <!-- employeeAdd2 -->
+      <div class="from-group">
+        <label>Employee Add2</label>
+        <textarea rows="1" cols="35" pInputTextarea class="form-control" type="text"
+          formControlName="employeeAdd2"></textarea>
+      </div>
+    </div>
+    <br>
+    <button pButton type="submit" class="p-button-success p-button-raised p-button-rounded"
+    label="{{editMode?'Edit':'Add'}}" icon="pi pi-user-edit" iconPos="right" (click)="onAddEditTableRow()"></button> <br>
+  </form>
+</div>
+
+<!-- <div class="loader-container" [hidden]="loader" >
+  <p>Loading....</p>
+</div> -->

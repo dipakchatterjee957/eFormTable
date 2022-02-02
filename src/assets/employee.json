@@ -1,0 +1,22 @@
+{
+  "employee": [
+    {
+      "employeeFirstName": "Chayan",
+      "employeeLastName": "datta",
+      "employeeEmail": "c@gmail.com",
+      "employeePhone": "06985686565",
+      "employeeAdd1": "Kolkata",
+      "employeeAdd2": null,
+      "id": 1
+    },
+    {
+      "employeeFirstName": "Sudip",
+      "employeeLastName": "Mondal",
+      "employeeEmail": "s@gmail.com",
+      "employeePhone": "7418525896",
+      "employeeAdd1": "Delhi",
+      "employeeAdd2": null,
+      "id": 2
+    }
+  ]
+}
